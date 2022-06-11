@@ -66,7 +66,7 @@ To install a package you use the function `install.packages`, so to install the 
 
 ### Core tidyverse and other tidyverse
 
-Within tidyverse there are eight core packages, and then a couple of extra packages and some back-end packages. All of these are installed when you run `install.packages("tidyverse")`, but only the core packages are loaded when you run `library(tidyverse)`. This is not something that you have to worry too much about, it just means that you have to run an extra `library` line when you want to use one of those extra packages that come with tidyverse but are beyond the core tidyverse packages.
+Within tidyverse there are eight core packages, and then a couple of extra tidyverse packages. All of these are installed when you run `install.packages("tidyverse")`, but only the core packages are loaded when you run `library(tidyverse)` (plus a couple of back-end ones that you don't really see). This is not something that you have to worry too much about, it just means that you have to run an extra `library` line when you want to use one of those extra tidyverse packages that are beyond the core ones. Extra tidyverse packages that I would often use include scales for formatting axes, lubridate for handling dates and times, and readxl for reading and writing Excel files. 
 
 
 
