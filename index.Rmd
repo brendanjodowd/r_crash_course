@@ -361,6 +361,21 @@ cancer %>%
   kable_this() 
 ```
 
+You can select all the columns of a particular type (numerical, character, etc.) using the selection helper function `where`. It takes as its argument the name of another function which performs a logical check on a variable, examples include `is.numeric`, `is.character`, `is.logical`, `is.factor`. Let's select the numerical variables. 
+
+```{r , eval=F}
+cancer %>%
+  select(where(is.numeric))
+```
+
+```{r , echo=F}
+cancer %>%
+  select(where(is.numeric)) %>%
+  kable_this() 
+```
+
+Note that you can select the opposite (non-numeric columns, for example), by putting a minus or the 'NOT' logical operator `!` in front of the `where` function.
+
 ### filter()
 
 The `filter` function allows you to select specific **rows** from a dataframe. Again the first argument is the dataframe so that it can be used by the pipe. Then you provide some logical expression based on the variables in the dataframe, and cases where that expression is true are retained in the output. Let's take the `cancer` dataframe again and filter out the rows where `tobgp` is equal to `"30+"`. Note the use of the double equals `==` which is the binary comparison operator for 'equals'.
@@ -782,6 +797,76 @@ a_new_dataframe <- readRDS("my_folder/my_rds_file.rds")
 You may see functions `save` and `load`. I don't use them so much. The key differences are that you can save and load as many objects as you like with single `save` and `load` functions, and the `load` function brings back all of the objects with the same names that they were saved with, you don't use `load` with the assignment operator to make a new object. 
 </details>
 </div>
+
+### Pivoting
+
+Pivoting dataframes can be tricky but I need to do it a lot with data imported from [the CSO's open data portal](https://data.cso.ie) so I'll give a guide here. 
+
+To keep things simple we will only consider pivots involving one column for names and one for values when pivoting wider, and one *resultant* column for names and one *resultant* column for values when pivoting longer.  
+
+#### pivot_wider
+
+Let's take our cancer dataset again, forget about `ncases` (we'll drop that) and pivot the table so that we have four new columns for each of the `tobgp` values, and the values within those columns will be `ncontrols` for the appropriate combination of `tobgp`, `agegp` and `alcgp`. For this we use `pivot_wider`. The two important arguments to this are `names_from` which is equal to the name of the variable that will provide names for our new columns, and `values_from` which is the values that will sit in those new columns. We'll pop the output into a new dataframe called `wide_cancer_dataset`
+
+```{r , echo=F}
+cancer %>% 
+  select(-ncases) %>% 
+  pivot_wider(names_from = tobgp, values_from = ncontrols) %>% 
+  kable_this()
+```
+```{r }
+wide_cancer_dataset <- cancer %>% 
+  select(-ncases) %>% 
+  pivot_wider(names_from = tobgp, values_from = ncontrols)
+```
+
+
+You might notice some `NA` values among the new dataset. This is because `wide_cancer_dataset` include some combinations that weren't in the original cancer dataset, e.g. `agegp = "25-34"`, `alcgp = "80-119"` and `tobgp = "20-29"` didn't appear in the cancer dataset. If you wanted to set those `NA` values to zero at the time of pivoting, you could use the extra argument `values_fill = 0`. 
+
+You can also add a prefix to your new columns using the additional argument `names_prefix`, which takes a string, e.g. `names_prefix = "tobgp_"`. 
+
+#### pivot_longer
+
+Let's take `wide_cancer_dataset` and convert it back into a longer format. We'll use the function `pivot_longer`. It has three key arguments: 
+- `cols`: this specifies the columns to be pivoted into rows
+- `names_to`: the name for the new column which contains the names of the columns that you are pivoting
+- `values_to`: the name for the new column which contains the values from the columns that you are pivoting.
+
+```{r , eval=F}
+wide_cancer_dataset %>% 
+  pivot_longer(cols = c("0-9g/day", "10-19",  "20-29","30+"), 
+               names_to = "tobgp", 
+               values_to = "ncontrols")
+```
+```{r , echo=F}
+wide_cancer_dataset %>% 
+  pivot_longer(cols = c("0-9g/day", "10-19",  "20-29","30+"), 
+               names_to = "tobgp", 
+               values_to = "ncontrols") %>% 
+  kable_this()
+```
+
+That's all fine, but specifying the four column names is a bit fiddly. Instead we can specify the columns which will **not** be pivoted, which are `agegp` and `alcgp`. To do that we pop in these column names with the argument `cols = ` but put a **minus** in front of the vector containing these names. The output isn't shown here but the result is the same as the above.
+
+```{r , eval=F}
+wide_cancer_dataset %>% 
+  pivot_longer(cols = -c("alcgp", "agegp"), 
+               names_to = "tobgp", 
+               values_to = "ncontrols")
+```
+
+You should know that the selection helper functions (like `contains`, `starts_with` and  `ends_with`) can be used when specifying the list of columns which are to be pivoted. Suppose in making `wide_cancer_dataset` that we had used `names_prefix = "tobgp_"` so that each of our tobacco columns started with the string `"tobgp_"`. Then we could have pivoted longer by specifying our column selection as `cols = starts_with("tobgp_")`.  
+
+We could also have used the `where` selection helper together with `is.numeric` to pivot only the numerical type columns. The code for this is shown below but the results are not since they are the same as before. 
+
+```{r , eval=F}
+wide_cancer_dataset %>% 
+  pivot_longer(cols = where(is.numeric), 
+               names_to = "tobgp", 
+               values_to = "ncontrols")
+```
+
+One last thing is that the `NA` values from `wide_cancer_dataset` have appeared in the output. If you didn't want that to be the case you could use the additional argument `values_drop_na`, setting it equal to `TRUE`. 
 
 ## Plotting
 

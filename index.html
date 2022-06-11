@@ -6201,6 +6201,737 @@ ncontrols
 </tbody>
 </table>
 </div>
+<p>You can select all the columns of a particular type (numerical,
+character, etc.) using the selection helper function <code>where</code>.
+It takes as its argument the name of another function which performs a
+logical check on a variable, examples include <code>is.numeric</code>,
+<code>is.character</code>, <code>is.logical</code>,
+<code>is.factor</code>. Let’s select the numerical variables.</p>
+<pre class="r"><code>cancer %&gt;%
+  select(where(is.numeric))</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+ncases
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+ncontrols
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+31
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+43
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note that you can select the opposite (non-numeric columns, for
+example), by putting a minus or the ‘NOT’ logical operator
+<code>!</code> in front of the <code>where</code> function.</p>
 </div>
 <div id="filter" class="section level3">
 <h3>filter()</h3>
@@ -27907,6 +28638,1964 @@ you don’t use <code>load</code> with the assignment operator to make a
 new object.
 </details>
 </div>
+</div>
+</div>
+<div id="pivoting" class="section level3">
+<h3>Pivoting</h3>
+<p>Pivoting dataframes can be tricky but I need to do it a lot with data
+imported from <a href="https://data.cso.ie">the CSO’s open data
+portal</a> so I’ll give a guide here.</p>
+<p>To keep things simple we will only consider pivots involving one
+column for names and one for values when pivoting wider, and one
+<em>resultant</em> column for names and one <em>resultant</em> column
+for values when pivoting longer.</p>
+<div id="pivot_wider" class="section level4">
+<h4>pivot_wider</h4>
+<p>Let’s take our cancer dataset again, forget about <code>ncases</code>
+(we’ll drop that) and pivot the table so that we have four new columns
+for each of the <code>tobgp</code> values, and the values within those
+columns will be <code>ncontrols</code> for the appropriate combination
+of <code>tobgp</code>, <code>agegp</code> and <code>alcgp</code>. For
+this we use <code>pivot_wider</code>. The two important arguments to
+this are <code>names_from</code> which is equal to the name of the
+variable that will provide names for our new columns, and
+<code>values_from</code> which is the values that will sit in those new
+columns. We’ll pop the output into a new dataframe called
+<code>wide_cancer_dataset</code></p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+agegp
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+alcgp
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+0-9g/day
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+10-19
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+20-29
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+30+
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre class="r"><code>wide_cancer_dataset &lt;- cancer %&gt;% 
+  select(-ncases) %&gt;% 
+  pivot_wider(names_from = tobgp, values_from = ncontrols)</code></pre>
+<p>You might notice some <code>NA</code> values among the new dataset.
+This is because <code>wide_cancer_dataset</code> include some
+combinations that weren’t in the original cancer dataset,
+e.g. <code>agegp = &quot;25-34&quot;</code>, <code>alcgp = &quot;80-119&quot;</code> and
+<code>tobgp = &quot;20-29&quot;</code> didn’t appear in the cancer dataset. If you
+wanted to set those <code>NA</code> values to zero at the time of
+pivoting, you could use the extra argument
+<code>values_fill = 0</code>.</p>
+<p>You can also add a prefix to your new columns using the additional
+argument <code>names_prefix</code>, which takes a string,
+e.g. <code>names_prefix = &quot;tobgp_&quot;</code>.</p>
+</div>
+<div id="pivot_longer" class="section level4">
+<h4>pivot_longer</h4>
+<p>Let’s take <code>wide_cancer_dataset</code> and convert it back into
+a longer format. We’ll use the function <code>pivot_longer</code>. It
+has three key arguments: - <code>cols</code>: this specifies the columns
+to be pivoted into rows - <code>names_to</code>: the name for the new
+column which contains the names of the columns that you are pivoting -
+<code>values_to</code>: the name for the new column which contains the
+values from the columns that you are pivoting.</p>
+<pre class="r"><code>wide_cancer_dataset %&gt;% 
+  pivot_longer(cols = c(&quot;0-9g/day&quot;, &quot;10-19&quot;,  &quot;20-29&quot;,&quot;30+&quot;), 
+               names_to = &quot;tobgp&quot;, 
+               values_to = &quot;ncontrols&quot;)</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+agegp
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+alcgp
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+tobgp
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+ncontrols
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+25-34
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+60
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+35-44
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+45-54
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+55-64
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+43
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+65-74
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+0-39g/day
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+40-79
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+80-119
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+0-9g/day
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+10-19
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+20-29
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+75+
+</td>
+<td style="text-align:left;">
+120+
+</td>
+<td style="text-align:left;">
+30+
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>That’s all fine, but specifying the four column names is a bit
+fiddly. Instead we can specify the columns which will
+<strong>not</strong> be pivoted, which are <code>agegp</code> and
+<code>alcgp</code>. To do that we pop in these column names with the
+argument <code>cols =</code> but put a <strong>minus</strong> in front
+of the vector containing these names. The output isn’t shown here but
+the result is the same as the above.</p>
+<pre class="r"><code>wide_cancer_dataset %&gt;% 
+  pivot_longer(cols = -c(&quot;alcgp&quot;, &quot;agegp&quot;), 
+               names_to = &quot;tobgp&quot;, 
+               values_to = &quot;ncontrols&quot;)</code></pre>
+<p>You should know that the selection helper functions (like
+<code>contains</code>, <code>starts_with</code> and
+<code>ends_with</code>) can be used when specifying the list of columns
+which are to be pivoted. Suppose in making
+<code>wide_cancer_dataset</code> that we had used
+<code>names_prefix = &quot;tobgp_&quot;</code> so that each of our tobacco columns
+started with the string <code>&quot;tobgp_&quot;</code>. Then we could have
+pivoted longer by specifying our column selection as
+<code>cols = starts_with(&quot;tobgp_&quot;)</code>.</p>
+<p>We could also have used the <code>where</code> selection helper
+together with <code>is.numeric</code> to pivot only the numerical type
+columns. The code for this is shown below but the results are not since
+they are the same as before.</p>
+<pre class="r"><code>wide_cancer_dataset %&gt;% 
+  pivot_longer(cols = where(is.numeric), 
+               names_to = &quot;tobgp&quot;, 
+               values_to = &quot;ncontrols&quot;)</code></pre>
+<p>One last thing is that the <code>NA</code> values from
+<code>wide_cancer_dataset</code> have appeared in the output. If you
+didn’t want that to be the case you could use the additional argument
+<code>values_drop_na</code>, setting it equal to <code>TRUE</code>.</p>
 </div>
 </div>
 </div>
