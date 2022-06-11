@@ -917,7 +917,7 @@ ggplot(data = dataset_for_plot) +
 
 Nice. We can easily make a line plot by swapping `geom_point` for `geom_line` in the above.
 
-Let's make a line plot with the countries France, Germany and Spain each having a different line colour, plotting their populations over time. Note that unlike x and y, we have to specify the argument `colour = `.
+Let's make a line plot with the countries France, Germany and Spain each having a different line colour, plotting their populations over time. 
 
 ```{r}
 dataset_for_plot <- population %>% 
@@ -933,14 +933,14 @@ Great. Let's make a column plot using `geom_col`. We'll filter a couple of count
 dataset_for_plot <- population %>% 
   filter(country %in% c("France", "Germany", "Spain", "Italy", "Poland"), year == 2010)
          
-ggplot(dat = dataset_for_plot) + 
+ggplot(data = dataset_for_plot) + 
   geom_col(mapping = aes(x = country, y = population))
 ```
 
 We can turn this into a bar plot easily by adding `coord_flip()`:
 
 ```{r}
-ggplot(dat = dataset_for_plot) + 
+ggplot(data = dataset_for_plot) + 
   geom_col(mapping = aes(x = country, y = population)) +
   coord_flip()
 ```
