@@ -42,7 +42,7 @@ This guide will be just enough to get you going. It does not show the full range
 
 The help function in R provides great documentation and examples for all functions. Use it by running `?` followed by the name of the function. For example, to find out more about the function `select` just run `?select`.
 
-There are very good [cheatsheets for different packages on the RStudio website](https://www.rstudio.com/resources/cheatsheets/). One cheatsheet that you won’t find on that page but which I think is really useful for beginners is [the one on data wrangling](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf).
+There are very good [cheatsheets for different packages on the RStudio website](https://www.rstudio.com/resources/cheatsheets/). One cheatsheet that you won’t find on that page but which I think is really useful for beginners is [the one on data wrangling](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) (although some of the functions on that are out of date).
 
 Finally there are a couple of good online forums where users post their coding problems and other users try to provide solutions. One of the most active of these is Stack Overflow. Try searching or posting your problem there if you are getting stuck. Users are more likely to be able to help if you provide a reproducible example, so try to provide enough code so that they can recreate the problem themselves. 
 
