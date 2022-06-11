@@ -2034,7 +2034,7 @@ numbers_vec</code></pre>
 <div class="blue">
 <details>
 <summary>
-<em>Click to example of string and logical vectors</em>
+<em>Click to see example of string and logical vectors</em>
 </summary>
 <p>We can make a vector of strings by putting each string in inverted
 commas. We can use single or double inverted commas.</p>
@@ -22395,9 +22395,8 @@ total_cases
 <p>After using a <code>group_by</code> you may wish to apply the
 function <code>ungroup()</code>. This could avoid unexpected outcomes
 later, for example if you were using a summary function on a dataset
-that you had grouped for the purposes if you are using a summary
-function later, for example. Here’s how you would use it (results not
-shown):</p>
+that you had grouped for the purposes of some <code>mutate</code>
+process. Here’s how you would use it (results not shown):</p>
 <pre class="r"><code>cancer %&gt;%
   group_by(tobgp) %&gt;% 
   mutate(total_controls = sum(ncases)) %&gt;% 

@@ -173,7 +173,7 @@ numbers_vec
 
 <div class = "blue">
 <details>
-  <summary>*Click to example of string and logical vectors*</summary>
+  <summary>*Click to see example of string and logical vectors*</summary>
 We can make a vector of strings by putting each string in inverted commas. We can use single or double inverted commas.  
 
 ```{r}
@@ -641,7 +641,7 @@ cancer %>%
 
 #### ungroup
 
-After using a `group_by` you may wish to apply the function `ungroup()`. This could avoid unexpected outcomes later, for example if you were using a summary function on a dataset that you had grouped for the purposes  if you are using a summary function later, for example. Here's how you would use it (results not shown):
+After using a `group_by` you may wish to apply the function `ungroup()`. This could avoid unexpected outcomes later, for example if you were using a summary function on a dataset that you had grouped for the purposes of some `mutate` process. Here's how you would use it (results not shown):
 
 ```{r , eval=F}
 cancer %>%
