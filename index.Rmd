@@ -66,9 +66,25 @@ To install a package you use the function `install.packages`, so to install the 
 
 ### Core tidyverse and other tidyverse
 
-Within tidyverse there are eight core packages, and then a couple of extra tidyverse packages. All of these are installed when you run `install.packages("tidyverse")`, but only the core packages are loaded when you run `library(tidyverse)` (plus a couple of back-end ones that you don't really see). This is not something that you have to worry too much about, it just means that you have to run an extra `library` line when you want to use one of those extra tidyverse packages that are beyond the core ones. Extra tidyverse packages that I would often use include scales for formatting axes, lubridate for handling dates and times, and readxl for reading and writing Excel files. 
+Within tidyverse there are eight core packages, and then a couple of extra tidyverse packages. All of these are installed when you run `install.packages("tidyverse")`, but only the core packages are loaded when you run `library(tidyverse)` (plus a couple of back-end ones that you don't really see). This is not something that you have to worry too much about, it just means that you have to run an extra `library` line when you want to use one of those extra tidyverse packages that are beyond the core ones. Extra tidyverse packages that I would often use include scales for formatting axes, lubridate for handling dates and times, and readxl for reading and writing Excel files. Some packages I like which aren't from tidyverse (and require separate installation) include sf for maps, tictoc for timing how long it takes code to run, beepr for making 'ding' noises after code has finished running, and knitr for making html documents like this one. 
 
+<div class = "blue">
+<details>
+  <summary>*Click for a summary on types of packages*</summary>
 
+A diagram which summarises the different types of package is shown below. The five main types (A, B, C, D and E) are described below. As a beginner you will probably only encounter types A and B.
+
+![Diagram summarising types of packages](package_map.png)
+
+<ol type="A">
+  <li>Base R: These packages are already installed with R and always loaded by default, so you don't need to use `install.packages` or `library`. Examples include base which has lots of fundamental functions and stats which has functions for statistical analysis.</li>
+  <li>Core Tidyverse: These are the main tidyverse packages. They are all installed using `install.packages("tidyverse")` and loaded using `library(tidyverse)`. Examples include dplyr for data manipulation and stringr for manipulating strings.</li>
+  <li>Other Tidyverse: These are part of tidyverse but not among the core packages. They are also all installed using `install.packages("tidyverse")` but they are **not** loaded with `library(tidyverse)`, you have to use a separate `library` line to load these. Examples include lubridate for managing dates and times and haven for reading more unusual file types. You might use these kinds of packages as an intermediate user but not so much as a beginner.</li>
+  <li>Other packages on CRAN: There are over 18,000 packages on CRAN made by developers and organisations all over the world. These can be downloaded using `install.packages` and loaded using `library`. Examples include csodata for downloading CSO data, and caret for machine learning. As a beginner you will not encounter many of these.</li>
+  <li>Other packages not on CRAN: Many people make packages which for one reason or another are not on CRAN. For example a company may make a package for internal use only, or an individual might store several functions that they made themselves as a package on their own device (or maybe on GitHub) so that they can be easily added to their projects. These would be installed using a special configuration of `install.packages` or some other function, but once installed they can be loaded using `library`.</li>
+</ol>
+</details>
+</div>
 
 ## The RStudio environment
 
